@@ -1,8 +1,41 @@
-import '../styles/globals.css'
-import type { AppProps } from 'next/app'
+import { useState, useEffect } from 'react';
+import type { AppProps } from 'next/app';
+import { useRouter } from 'next/router';
+import TagManager from 'react-gtm-module';
+import Loading from 'components/Atoms/Loading';
+import 'react-toastify/dist/ReactToastify.css';
+import 'styles/main.scss';
+
+const tagManagerArgs = {
+  gtmId: process.env.NEXT_PUBLIC_GTM as string,
+};
 
 function MyApp({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    TagManager.initialize(tagManagerArgs);
+  }, []);
+
+  useEffect(() => {
+    const handleStart = (url: string) => (url !== router.asPath) && setLoading(true);
+    const handleComplete = (url: string) => (url === router.asPath)
+      && setTimeout(() => { setLoading(false); }, 5000);
+
+    router.events.on('routeChangeStart', handleStart);
+    router.events.on('routeChangeComplete', handleComplete);
+    router.events.on('routeChangeError', handleComplete);
+
+    return () => {
+      router.events.off('routeChangeStart', handleStart);
+      router.events.off('routeChangeComplete', handleComplete);
+      router.events.off('routeChangeError', handleComplete);
+    };
+  }, [router]);
+
+  if (loading) return <Loading />;
+  return <Component {...pageProps} />;
 }
 
-export default MyApp
+export default MyApp;

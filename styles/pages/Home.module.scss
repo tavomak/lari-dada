@@ -1,0 +1,44 @@
+@import '../utils/variables';
+@import '../utils/media';
+@import '../utils/keyframes';
+
+.primaryTitle {
+  line-height: .9;
+  & span {
+    color: $primary-color;
+    position: relative;
+    &::before {
+      animation-duration: 6s;
+      animation-iteration-count: infinite;
+      background-clip: text;
+      position: absolute;
+      -webkit-text-fill-color: transparent;
+      height: 100%;
+    }
+  }
+}
+
+.firstLetter{
+  font-size: 3.9rem;
+  &::before {
+    content: attr(data-content);
+    animation: a .1s ease infinite;
+    background: var(#{--color-primary});
+    top: 14.1px;
+    left: 0;
+  }
+}
+
+.secondLetter::before {
+  content: attr(data-content);
+  animation: b .1s ease infinite;
+  background: var(#{--color-primary});
+}
+
+.bajada {
+  max-width: 650px;
+}
+
+.primaryBg {
+  background-size: cover !important;
+}

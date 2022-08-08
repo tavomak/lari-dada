@@ -1,0 +1,23 @@
+// @import 'react-datepicker/dist/react-datepicker.css';
+// @import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+@import 'bootstrap/dist/css/bootstrap.css';
+
+@import "utils/variables";
+@import "utils/media";
+@import "utils/mixins";
+
+@import "base/typography";
+@import "base/global";
+
+@import "components/hamburguer";
+@import "components/buttons";
+@import "components/transitions";
+
+
+.grecaptcha-badge {
+  transform: scale(.3);
+}
+
+:root {
+  --color-primary: linear-gradient(75deg,#6010c9,#d228de 80%);
+}
