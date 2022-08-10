@@ -5,6 +5,7 @@ const nextConfig = {
   images: {
     domains: [
       'localhost',
+      'lari-dada.art',
     ],
   },
   // typescript: {

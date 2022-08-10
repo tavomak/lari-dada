@@ -1,6 +1,6 @@
 import type { NextPage } from 'next';
+import Link from 'next/link';
 import Layout from '@components/Templates/Layout';
-import Button from '@components/Atoms/Button';
 import styles from '@styles/pages/Home.module.scss';
 
 const Home: NextPage = () => (
@@ -29,10 +29,9 @@ const Home: NextPage = () => (
             Creemos en el poder del color, en el espíritu que hay en la obra y
             cómo se transforma frente al espectador.
           </p>
-          <Button
-            className="btn btn-primary mt-4 text-uppercase py-2 px-4"
-            text="Ir a la tienda"
-          />
+          <Link href="/shop">
+            <a href="#!" className="btn btn-primary mt-4 text-uppercase py-2 px-4">Ir a la tienda</a>
+          </Link>
         </div>
       </div>
     </div>

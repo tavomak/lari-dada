@@ -1,0 +1,14 @@
+@import "styles/utils/media";
+@import "styles/utils/mixins";
+@import "styles/utils/variables";
+
+.gridWrap {
+  display: grid;
+  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+}
+
+.gridItemImage {
+  border-radius: 15px;
+  margin: 0 0 20px 0;
+}

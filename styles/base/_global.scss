@@ -18,7 +18,7 @@ a {
   text-decoration: none;
   &:hover {
     text-decoration: none;
-    color: #2F80ED;
+    color: $secondary-color;
   }
   &:focus {
     text-decoration: none;
@@ -61,7 +61,7 @@ strong, .font-bold {
 }
 
 .shadow {
-  box-shadow: 10px 10px 51px 0px rgb(98 52 130 / 20%) !important;
+  box-shadow: 10px 10px 41px 0px rgba(141, 75, 187, 0.15) !important;
 }
 
 .overlay {
