@@ -118,6 +118,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const allPosts = await getAllProducts();
   return {
     paths: allPosts?.products?.nodes?.map((product: any) => `/product/${product.slug}`) || [],
-    fallback: true,
+    fallback: false,
   };
 };
