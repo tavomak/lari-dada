@@ -60,7 +60,7 @@ const Shop: NextPage<Props> = ({ products }) => (
               <p className="mb-0">
                 <b>{`${item.name}: `}</b>
               </p>
-              <p className="mb-0">
+              <p className="mb-0 d-none">
                 <span>{`${item.price}`}</span>
               </p>
             </a>
