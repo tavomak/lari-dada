@@ -65,7 +65,7 @@ const Product: NextPage<Props> = ({ product }) => {
                 <Link href="/shop">
                   <a href="#!">
                     <span><TiArrowBack /></span>
-                    Volver a la tienda
+                    Volver
                   </a>
                 </Link>
               </p>

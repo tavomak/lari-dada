@@ -40,7 +40,10 @@ strong, .font-bold {
 }
 
 .content-wrapper {
-  min-height: calc(100vh - 45px);
+  min-height: calc(100vh - 85px);
+  @include MQ(L){
+    min-height: calc(100vh - 45px);
+  }
 }
 
 @each $name, $color in $palette {

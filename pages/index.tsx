@@ -30,7 +30,7 @@ const Home: NextPage = () => (
             cómo se transforma frente al espectador.
           </p>
           <Link href="/shop">
-            <a href="#!" className="btn btn-primary mt-4 text-uppercase py-2 px-4">Ir a la tienda</a>
+            <a href="#!" className="btn btn-primary mt-4 text-uppercase py-2 px-4 mb-4">Ir a la tienda</a>
           </Link>
         </div>
       </div>

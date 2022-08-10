@@ -1,12 +1,13 @@
 @import '../utils/variables';
 @import '../utils/media';
+@import '../utils/mixins';
 @import '../utils/keyframes';
 
 .primaryTitle {
-  line-height: .9;
   & span {
     color: $primary-color;
     position: relative;
+    display: block;
     &::before {
       animation-duration: 6s;
       animation-iteration-count: infinite;
@@ -19,21 +20,40 @@
 }
 
 .firstLetter{
-  font-size: 3.9rem;
+  font-size: 2.1rem;
+
+  @include MQ(L) {
+    font-size: 2.9rem;
+  }
+
+  @include MQ(XL) {
+    font-size: 3.5rem;
+  }
+
   &::before {
     content: attr(data-content);
     animation: a .1s ease infinite;
     background: var(#{--color-primary});
-    top: 14.1px;
-    left: 0;
   }
 }
 
-.secondLetter::before {
-  content: attr(data-content);
-  animation: b .1s ease infinite;
-  background: var(#{--color-primary});
+.secondLetter {
+  font-size: 2.75rem;
+
+  @include MQ(L) {
+    font-size: 3.7rem;
+  }
+
+  @include MQ(XL) {
+    font-size: 4.5rem;
+  }
+  &::before {
+    content: attr(data-content);
+    animation: b .1s ease infinite;
+    background: var(#{--color-primary});
+  }
 }
+
 
 .bajada {
   max-width: 650px;
@@ -41,4 +61,5 @@
 
 .primaryBg {
   background-size: cover !important;
+  min-height: 70vh;
 }
