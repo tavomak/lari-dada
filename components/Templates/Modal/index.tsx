@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import styles from './styles.module.scss';
 
 type Props = {
-  children: string;
-  onClick: React.MouseEventHandler<HTMLAnchorElement>;
-  showModal: boolean;
-  size: string;
-  bgColor: string;
-  noPadding: boolean;
+  children: React.ReactNode,
+  onClick: React.MouseEventHandler<HTMLAnchorElement>,
+  showModal: boolean,
+  size: string,
+  bgColor: string,
+  noPadding: boolean,
 }
 
 const Modal = ({
@@ -54,6 +54,7 @@ Modal.defaultProps = {
   size: '',
   onClick: undefined,
   bgColor: '',
+  noPadding: false,
 };
 
 Modal.propTypes = {
@@ -62,6 +63,7 @@ Modal.propTypes = {
   showModal: PropTypes.bool.isRequired,
   size: PropTypes.string,
   bgColor: PropTypes.string,
+  noPadding: PropTypes.bool,
 };
 
 export default Modal;

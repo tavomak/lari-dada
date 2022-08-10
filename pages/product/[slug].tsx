@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import type { NextPage } from 'next';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { getAllProducts, getProductById } from '@lib/index';
@@ -8,6 +9,8 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Parser from 'html-react-parser';
 import Layout from '@components/Templates/Layout';
+import Modal from '@components/Templates/Modal';
+import FormContact from '@components/Molecules/Forms/Contact';
 
 type image = {
   sourceUrl: string,
@@ -42,6 +45,12 @@ const Product: NextPage<Props> = ({ product }) => {
   const router = useRouter();
   const { galleryImages, name, price } = product;
   const yoastHead = Parser(product.seo.fullHead);
+  const [modal, setModal] = useState(false);
+
+  const handleToggleModal = (e: any) => {
+    e.preventDefault();
+    setModal(!modal);
+  };
   return (
     <Layout
       title={name}
@@ -92,12 +101,26 @@ const Product: NextPage<Props> = ({ product }) => {
                   <b>Precio: </b>
                   <span>{price}</span>
                 </p>
-                <a href="#!" className="btn btn-primary">Agregar al carrito</a>
+                <a
+                  href="!#"
+                  className="btn btn-primary"
+                >
+                  Cotizar
+                  {' '}
+                  { name }
+                </a>
               </div>
             </div>
           </div>
         )}
       </section>
+      <Modal
+        showModal={modal}
+        onClick={handleToggleModal}
+        size="xl"
+      >
+        <FormContact />
+      </Modal>
     </Layout>
   );
 };

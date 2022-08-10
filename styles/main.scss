@@ -21,3 +21,12 @@
 :root {
   --color-primary: linear-gradient(75deg,#6010c9,#d228de 80%);
 }
+
+#nprogress .bar {
+  background: $secondary-color;
+}
+
+#nprogress .spinner-icon {
+  border-top-color: $secondary-color;
+  border-left-color: $secondary-color;
+}
