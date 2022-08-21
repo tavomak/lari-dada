@@ -8,6 +8,7 @@ import Image from 'next/image';
 import Head from 'next/head';
 import Link from 'next/link';
 import Parser from 'html-react-parser';
+import Slider from 'react-slick';
 import Layout from '@components/Templates/Layout';
 import Modal from '@components/Templates/Modal';
 import FormContact from '@components/Molecules/Forms/Contact';
@@ -40,6 +41,18 @@ type detail = {
 type Props = {
   product: detail,
 }
+
+const settings = {
+  dots: true,
+  infinite: true,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: false,
+  arrows: true,
+  speed: 400,
+  autoplaySpeed: 5000,
+  cssEase: 'cubic-bezier(.8,0,0.5,1)',
+};
 
 const Product: NextPage<Props> = ({ product }) => {
   const router = useRouter();
@@ -79,16 +92,19 @@ const Product: NextPage<Props> = ({ product }) => {
                 </Link>
               </p>
               <div className="text-center shadow p-5" style={{ borderRadius: '15px' }}>
-                {galleryImages.nodes.map((item) => (
-                  <Image
-                    src={item.sourceUrl}
-                    alt={item.title}
-                    width={280}
-                    height={280}
-                    key={item.sourceUrl}
-                    objectFit="cover"
-                  />
-                ))}
+                <Slider {...settings}>
+                  {galleryImages.nodes.map((item) => (
+                    <div key={item.sourceUrl} className="position-relative">
+                      <Image
+                        src={item.sourceUrl}
+                        alt={item.title}
+                        width={280}
+                        height={280}
+                        objectFit="cover"
+                      />
+                    </div>
+                  ))}
+                </Slider>
               </div>
             </div>
             <div className="col-md-6">
