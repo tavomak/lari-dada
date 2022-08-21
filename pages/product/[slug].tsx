@@ -152,7 +152,7 @@ const Product: NextPage<Props> = ({ product }) => {
             </div>
             <div className="col-md-6">
               <div className="px-md-5">
-                <FormContact />
+                <FormContact product={name} />
               </div>
             </div>
           </div>
