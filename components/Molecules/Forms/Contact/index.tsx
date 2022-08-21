@@ -7,8 +7,10 @@ import ReCAPTCHA from 'react-google-recaptcha';
 import styles from './styles.module.scss';
 
 const recaptchaKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY as string;
-
-const FormContact = () => {
+type Props = {
+  product: string
+}
+const FormContact = ({ product }: Props) => {
   const [loading, setLoading] = useState(false);
   const recaptchaRef = useRef(null) as any;
   const [activeTarget, setActiveTarget] = useState({
@@ -96,6 +98,10 @@ const FormContact = () => {
         sitekey={recaptchaKey}
         onChange={onReCAPTCHAChange}
       />
+
+      <div className="d-none">
+        <input type="hidden" value={product} />
+      </div>
 
       <div className="form-group">
         <label htmlFor="username" className="form-label w-100 position-relative">
