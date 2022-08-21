@@ -100,7 +100,7 @@ const FormContact = ({ product }: Props) => {
       />
 
       <div className="d-none">
-        <input type="hidden" value={product} />
+        <input type="hidden" name="product" value={product} />
       </div>
 
       <div className="form-group">
