@@ -104,6 +104,7 @@ const Product: NextPage<Props> = ({ product }) => {
                 <a
                   href="!#"
                   className="btn btn-primary"
+                  onClick={handleToggleModal}
                 >
                   Cotizar
                   {' '}
@@ -119,7 +120,27 @@ const Product: NextPage<Props> = ({ product }) => {
         onClick={handleToggleModal}
         size="xl"
       >
-        <FormContact />
+        <div className="container">
+          <div className="row d-flex align-items-center my-md-5 mx-2">
+            <div className="col-md-6 mb-4">
+              <h2>{name}</h2>
+              <div className="shadow">
+                <Image
+                  src={galleryImages.nodes[0].sourceUrl}
+                  alt={galleryImages.nodes[0].title}
+                  width={16}
+                  height={16}
+                  layout="responsive"
+                />
+              </div>
+            </div>
+            <div className="col-md-6">
+              <div className="px-md-5">
+                <FormContact />
+              </div>
+            </div>
+          </div>
+        </div>
       </Modal>
     </Layout>
   );

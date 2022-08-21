@@ -46,7 +46,6 @@ const FormContact = () => {
   };
 
   const onReCAPTCHAChange = async (captchaCode: any) => {
-    console.log(captchaCode);
     if (!captchaCode) {
       return;
     }
@@ -59,15 +58,13 @@ const FormContact = () => {
         },
       });
       if (response.ok) {
-        emailjs.sendForm('service_6tucgh7', 'template_ex05dnc', form.current, 'MDfmR55yVZYpsAKKw')
-          .then((result) => {
+        emailjs.sendForm('service_dw6uw0s', 'template_y1zjkcx', form.current, '0ylDIbzfo2kaQJi9-')
+          .then(() => {
             setLoading(false);
-            UseNotify('success', '¡Gracias! Por suscribirte en nuestra newsletter');
-            console.log(result);
+            UseNotify('success', '¡Gracias! Por contactarnos, pronto nos estaremos comunicando...');
             reset();
-          }, (error) => {
+          }, () => {
             setLoading(false);
-            console.log(error);
             UseNotify('error', '¡Mensaje no enviado, por favor intentalo de nuevo!');
           });
       } else {
