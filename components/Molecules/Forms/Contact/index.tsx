@@ -96,55 +96,52 @@ const FormContact = () => {
         sitekey={recaptchaKey}
         onChange={onReCAPTCHAChange}
       />
-      <div className="row">
-        <div className="col">
-          <div className="form-group">
-            <label htmlFor="username" className="form-label w-100 position-relative">
-              <span className={`${styles.formLabel} ${activeTarget.username ? styles.activeLabel : ''}`}>
-                Nombre
-              </span>
-              <input
-                type="text"
-                className={`${styles.formInput} ${errors.username ? styles.formInputError : ''} form-control mt-2`}
-                {...register('username', { required: true, maxLength: 20 })}
-              />
-              {errors.username && (
-                <span className={styles.inputError}>
-                  Por favor ingresa un nombre válido
-                </span>
-              )}
-            </label>
-          </div>
-        </div>
-        <div className="col">
-          <div className="form-group">
-            <label htmlFor="email" className="form-label w-100 position-relative">
-              <span className={`${styles.formLabel} ${activeTarget.email ? styles.activeLabel : ''}`}>
-                Email
-              </span>
-              <input
-                type="email"
-                className={`${styles.formInput} ${errors.email ? styles.formInputError : ''} form-control mt-2`}
-                {...register(
-                  'email',
-                  {
-                    required: true,
-                    pattern: {
-                      value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
-                      message: 'invalid email address',
-                    },
-                  },
-                )}
-              />
-              {errors.email && (
-                <span className={styles.inputError}>
-                  Por favor ingresa un email válido
-                </span>
-              )}
-            </label>
-          </div>
-        </div>
+
+      <div className="form-group">
+        <label htmlFor="username" className="form-label w-100 position-relative">
+          <span className={`${styles.formLabel} ${activeTarget.username ? styles.activeLabel : ''}`}>
+            Nombre
+          </span>
+          <input
+            type="text"
+            className={`${styles.formInput} ${errors.username ? styles.formInputError : ''} form-control mt-2`}
+            {...register('username', { required: true, maxLength: 20 })}
+          />
+          {errors.username && (
+            <span className={styles.inputError}>
+              Por favor ingresa un nombre válido
+            </span>
+          )}
+        </label>
       </div>
+
+      <div className="form-group">
+        <label htmlFor="email" className="form-label w-100 position-relative">
+          <span className={`${styles.formLabel} ${activeTarget.email ? styles.activeLabel : ''}`}>
+            Email
+          </span>
+          <input
+            type="email"
+            className={`${styles.formInput} ${errors.email ? styles.formInputError : ''} form-control mt-2`}
+            {...register(
+              'email',
+              {
+                required: true,
+                pattern: {
+                  value: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+                  message: 'invalid email address',
+                },
+              },
+            )}
+          />
+          {errors.email && (
+            <span className={styles.inputError}>
+              Por favor ingresa un email válido
+            </span>
+          )}
+        </label>
+      </div>
+
       <div className="form-group">
         <label htmlFor="message" className="form-label w-100 position-relative">
           <span className={`${styles.formLabel} ${activeTarget.message ? styles.activeLabel : ''}`}>
